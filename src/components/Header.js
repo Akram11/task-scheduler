@@ -5,7 +5,11 @@ const Header = ({ title }) => {
     return (
         <header className="header">
             <h1>{title}</h1>
-            <Button color="blue" text="Add" />
+            <Button
+                onClick={() => console.log("sfs")}
+                color="blue"
+                text="Add"
+            />
         </header>
     );
 };
