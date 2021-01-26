@@ -1,5 +1,7 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
+
 import { useState } from "react";
 
 function App() {
@@ -26,8 +28,9 @@ function App() {
         console.log(tasks[0].reminder);
     };
     return (
-        <div className="App">
+        <div className="container">
             <Header />
+            <AddTask />
             {tasks.length > 0 ? (
                 <Tasks
                     onDelete={deleteTask}
@@ -35,7 +38,7 @@ function App() {
                     tasks={tasks}
                 />
             ) : (
-                "No Tasks "
+                "No Tasks"
             )}
         </div>
     );
