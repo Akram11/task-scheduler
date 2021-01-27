@@ -27,10 +27,17 @@ function App() {
         );
         console.log(tasks[0].reminder);
     };
+
+    const addTask = (task) => {
+        let id = Math.floor(Math.random() * 1000);
+        const newTask = { id, ...task };
+        setTasks([...tasks, newTask]);
+    };
+
     return (
         <div className="container">
             <Header />
-            <AddTask />
+            <AddTask onAdd={addTask} />
             {tasks.length > 0 ? (
                 <Tasks
                     onDelete={deleteTask}
