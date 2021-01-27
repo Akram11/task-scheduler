@@ -14,6 +14,7 @@ function App() {
         },
     ];
     const [tasks, setTasks] = useState(state);
+    const [toggleForm, setToggleForm] = useState(false);
 
     const deleteTask = (id) => {
         setTasks(tasks.filter((task) => task.id !== id));
@@ -36,8 +37,11 @@ function App() {
 
     return (
         <div className="container">
-            <Header />
-            <AddTask onAdd={addTask} />
+            <Header
+                onToggle={() => setToggleForm(!toggleForm)}
+                toggleForm={toggleForm}
+            />
+            {toggleForm && <AddTask onAdd={addTask} />}
             {tasks.length > 0 ? (
                 <Tasks
                     onDelete={deleteTask}
